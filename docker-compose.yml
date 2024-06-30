@@ -1,0 +1,27 @@
+services:
+
+  recycle-db:
+    container_name: db
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: recycle
+      POSTGRES_USER: user_db_recycle
+      POSTGRES_PASSWORD: pass@ord
+    ports:
+      - 5432:5432
+    networks:
+      - recycle-network
+
+  adminer:
+    container_name: admin
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - recycle-network
+
+networks:
+  recycle-network:
+    driver: bridge
