@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Recycle.Entyties;
+using Recycle.Entities;
 
 namespace Recycle.Repository.Map
 {

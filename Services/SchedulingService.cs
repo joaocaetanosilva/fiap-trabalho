@@ -6,19 +6,19 @@ using System.Text.RegularExpressions;
 
 namespace Recycle.Services
 {
-    public class TruckService : ITruckService
+    public class SchedulingService : ISchedulingService
     {
-        private ITruckRepository _truckRepository;
-        public TruckService(ITruckRepository _truckRepository)
+        private ISchedulingRepository _schedulingRepository;
+        public SchedulingService(ITruckRepository _schedulingRepository)
         {
-            this._truckRepository = _truckRepository;
+            this._schedulingRepository = _schedulingRepository;
         }
         public List<TruckDto> GetAll()
         {
 
             List<TruckDto> list = new List<TruckDto>();
 
-            list = _truckRepository.GetAll()
+            list = _schedulingRepository.GetAll()
             .Select(g => new TruckDto
             {
                 Id = g.Id,
@@ -30,7 +30,7 @@ namespace Recycle.Services
         public TruckDto GetById(int id)
         {
             var response = new TruckDto();
-            var truckDto = _truckRepository.GetById(id);
+            var truckDto = _schedulingRepository.GetById(id);
             if (truckDto != null)
             {
                 response.Id = truckDto.Id;
@@ -41,7 +41,7 @@ namespace Recycle.Services
         }
         public TruckDto Add(TruckDto truck)
         {
-            var response = _truckRepository.Add(new Truck()
+            var response = _schedulingRepository.Add(new Truck()
             {
              Placa = truck.Placa
              
@@ -52,20 +52,22 @@ namespace Recycle.Services
         public TruckDto Update(TruckDto truckDto, int id)
         {
 
-            var truck = this._truckRepository.GetById(id);
+            var truck = this._schedulingRepository.GetById(id);
             if (truck != null) {
                 truck.Placa = truckDto.Placa;
-                this._truckRepository.Update(truck);
+                this._schedulingRepository.Update(truck);
                 
             }
             return truckDto;
         }
         public void Delete(int id)
         {
-            var truck = this._truckRepository.GetById(id);
+            var truck = this._schedulingRepository.GetById(id);
             if (truck != null){
-                this._truckRepository.Delete(truck);
+                this._schedulingRepository.Delete(truck);
             }
         }
     }
+}
+
 }

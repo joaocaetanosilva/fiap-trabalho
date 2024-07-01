@@ -1,4 +1,4 @@
-﻿namespace Recycle.Entyties
+﻿namespace Recycle.Entities
 {
     public class Truck
     {

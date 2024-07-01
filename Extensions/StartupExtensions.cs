@@ -14,6 +14,8 @@ namespace Recycle.Extensions
             services.AddTransient<ITruckService, TruckService>();
             services.AddTransient<ITruckRepository, TruckRepository>();
 
+            services.AddTransient<ISchedulingService, SchedulingService>();
+            services.AddTransient<ISchedulingRepository, SchedulingRepository>();
         }
 
     }

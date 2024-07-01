@@ -1,4 +1,4 @@
-﻿using Recycle.Entyties;
+﻿using Recycle.Entities;
 
 namespace Recycle.Repositories
 {
